@@ -1,73 +1,77 @@
-# Welcome to your Lovable project
 
-## Project info
+# AI Model Benchmark Battle
 
-**URL**: https://lovable.dev/projects/e26353d5-7bc4-494d-bd2a-e2cd5bc4e1fd
+An interactive dashboard to compare and evaluate different AI language models across various NLP benchmarks.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **Model Comparison**: Select and compare up to 3 AI language models side by side
+- **Interactive Visualizations**: Bar charts, radar charts, and detailed comparison tables
+- **Benchmark Details**: View performance across multiple NLP tasks like MMLU, HellaSwag, TruthfulQA, and more
+- **Responsive Design**: Works on desktop and mobile devices
 
-**Use Lovable**
+## Live Demo
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e26353d5-7bc4-494d-bd2a-e2cd5bc4e1fd) and start prompting.
+Visit the [live demo](https://lovable.dev/projects/e26353d5-7bc4-494d-bd2a-e2cd5bc4e1fd) to see the project in action.
 
-Changes made via Lovable will be committed automatically to this repo.
+## Technologies Used
 
-**Use your preferred IDE**
+- React
+- TypeScript
+- Tailwind CSS
+- Recharts (for data visualization)
+- shadcn-ui components
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Getting Started
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
 
-Follow these steps:
+- Node.js (v14+)
+- npm or yarn
 
+### Installation
+
+1. Clone the repository:
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+git clone <repository-url>
+cd ai-model-benchmark-battle
 ```
 
-**Edit a file directly in GitHub**
+2. Install dependencies:
+```sh
+npm install
+# or
+yarn install
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+3. Start the development server:
+```sh
+npm run dev
+# or
+yarn dev
+```
 
-**Use GitHub Codespaces**
+4. Open your browser and navigate to `http://localhost:5173`
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## How to Use
 
-## What technologies are used for this project?
+1. Select models to compare by clicking on the model cards (up to 3 models)
+2. View benchmark performance in the charts and tables below
+3. Use the benchmark buttons to switch between different benchmarks
+4. Explore the radar chart to see relative strengths across all benchmarks
+5. Check the detailed comparison table for side-by-side statistics
 
-This project is built with:
+## Project Structure
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- `src/components/` - UI components for the dashboard
+- `src/data/` - Model and benchmark data
+- `src/pages/` - Main page components
+- `src/hooks/` - Custom React hooks
 
-## How can I deploy this project?
+## Contributing
 
-Simply open [Lovable](https://lovable.dev/projects/e26353d5-7bc4-494d-bd2a-e2cd5bc4e1fd) and click on Share -> Publish.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-## Can I connect a custom domain to my Lovable project?
+## License
 
-Yes it is!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project is licensed under the MIT License.

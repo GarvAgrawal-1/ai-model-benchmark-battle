@@ -7,14 +7,31 @@
     <meta name="description" content="Compare how well different AI language models perform on NLP benchmarks" />
     <meta name="author" content="Lovable" />
 
-    <meta property="og:title" content="model-verse-benchmark-battle" />
-    <meta property="og:description" content="Lovable Generated Project" />
+    <meta property="og:title" content="AI Model Benchmark Battle" />
+    <meta property="og:description" content="Compare performance of different AI language models across NLP benchmarks" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@lovable_dev" />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <!-- GitHub Pages SPA routing -->
+    <script type="text/javascript">
+      // Single-page apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
   </head>
 
   <body>
