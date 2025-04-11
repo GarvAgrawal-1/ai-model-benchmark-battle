@@ -98,4 +98,16 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Custom styles for charts */
+  .recharts-wrapper .recharts-cartesian-grid-horizontal line,
+  .recharts-wrapper .recharts-cartesian-grid-vertical line,
+  .recharts-wrapper .recharts-polar-grid-angle line,
+  .recharts-wrapper .recharts-polar-grid-concentric line {
+    stroke: #e5e7eb;
+  }
+  
+  .recharts-wrapper text {
+    fill: #6b7280;
+  }
 }
