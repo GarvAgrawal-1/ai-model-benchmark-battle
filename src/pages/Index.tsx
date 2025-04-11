@@ -10,11 +10,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { GitHubLogoIcon } from '@radix-ui/react-icons';
 import { Button } from "@/components/ui/button";
+import { Languages } from "lucide-react";
 
 const Index = () => {
   const [selectedModelIds, setSelectedModelIds] = useState<string[]>([]);
   const [selectedBenchmark, setSelectedBenchmark] = useState<string>("mmlu");
   const [selectionView, setSelectionView] = useState<string>("cards");
+  const [showMultilingualOnly, setShowMultilingualOnly] = useState<boolean>(false);
 
   const selectedModels = models.filter(model => 
     selectedModelIds.includes(model.id)
@@ -131,15 +133,42 @@ const Index = () => {
                   <SelectValue placeholder="Select a benchmark" />
                 </SelectTrigger>
                 <SelectContent>
-                  {benchmarks.map((benchmark) => (
-                    <SelectItem key={benchmark.id} value={benchmark.id}>
-                      {benchmark.name} - {benchmark.category}
-                    </SelectItem>
-                  ))}
+                  {benchmarks
+                    .filter(benchmark => !showMultilingualOnly || benchmark.category === 'multilingual')
+                    .map((benchmark) => (
+                      <SelectItem 
+                        key={benchmark.id} 
+                        value={benchmark.id}
+                        className={benchmark.category === 'multilingual' ? 'text-blue-600 font-medium' : ''}
+                      >
+                        {benchmark.category === 'multilingual' && <Languages className="inline h-3 w-3 mr-1" />}
+                        {benchmark.name} - {benchmark.category}
+                      </SelectItem>
+                    ))
+                  }
                 </SelectContent>
               </Select>
               
-              <div className="mt-4">
+              <div className="mt-4 space-y-3">
+                <Button 
+                  variant={showMultilingualOnly ? "default" : "outline"} 
+                  size="sm"
+                  onClick={() => {
+                    setShowMultilingualOnly(!showMultilingualOnly);
+                    if (!showMultilingualOnly) {
+                      // When enabling multilingual filter, switch to a multilingual benchmark
+                      const multilingualBenchmark = benchmarks.find(b => b.category === 'multilingual');
+                      if (multilingualBenchmark) {
+                        setSelectedBenchmark(multilingualBenchmark.id);
+                      }
+                    }
+                  }}
+                  className="gap-2"
+                >
+                  <Languages className="h-4 w-4" />
+                  {showMultilingualOnly ? "Showing Multilingual Benchmarks" : "Show Multilingual Benchmarks"}
+                </Button>
+                
                 {selectedBenchmark && (
                   <div className="rounded-lg bg-blue-50 p-3 text-sm">
                     <p className="font-medium text-blue-800">
@@ -160,7 +189,9 @@ const Index = () => {
           {/* Benchmark Bar Chart */}
           <BenchmarkChart
             models={models}
-            benchmarks={benchmarks}
+            benchmarks={showMultilingualOnly ? 
+              benchmarks.filter(b => b.category === 'multilingual') : 
+              benchmarks}
             selectedBenchmark={selectedBenchmark}
             onSelectBenchmark={setSelectedBenchmark}
           />
@@ -184,9 +215,25 @@ const Index = () => {
           <h2 className="text-2xl font-semibold mb-4">About AI Model Benchmarks</h2>
           <p className="text-gray-600 mb-4">
             These benchmarks evaluate language models on a variety of natural language processing tasks, including 
-            question answering, reasoning, knowledge retrieval, and code generation. Performance is measured as a 
-            score from 0-100, where higher is better.
+            question answering, reasoning, knowledge retrieval, code generation, and <span className="font-medium text-blue-600 inline-flex items-center gap-1">
+              <Languages className="h-4 w-4" /> multilingual capabilities
+            </span>. Performance is measured as a score from 0-100, where higher is better.
           </p>
+          
+          <div className="mb-4 p-3 bg-blue-50 rounded-lg border border-blue-100">
+            <h3 className="text-lg font-medium text-blue-800 flex items-center gap-2 mb-2">
+              <Languages className="h-5 w-5" />
+              Multilingual Benchmark Details
+            </h3>
+            <p className="text-blue-700 text-sm">
+              Our multilingual benchmarks evaluate how well AI models perform across different languages and translation tasks:
+            </p>
+            <ul className="mt-2 space-y-1 text-sm text-blue-700">
+              <li><strong>XNLI:</strong> Tests natural language inference across 15 languages</li>
+              <li><strong>FLORES-101:</strong> Measures translation quality across 101 languages</li>
+              <li><strong>MGSM:</strong> Evaluates math problem-solving in 10+ languages</li>
+            </ul>
+          </div>
           
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {benchmarks.map((benchmark) => (

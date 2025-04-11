@@ -31,7 +31,8 @@ export function ModelComparison({ selectedModels, benchmarks }: ModelComparisonP
     reasoning: "Reasoning & Logic",
     knowledge: "Knowledge & Facts",
     qa: "Question Answering",
-    code: "Code Generation"
+    code: "Code Generation",
+    multilingual: "Multilingual Capabilities"
   };
 
   return (

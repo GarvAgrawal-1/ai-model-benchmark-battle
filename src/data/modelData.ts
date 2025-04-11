@@ -22,7 +22,7 @@ export interface BenchmarkInfo {
   name: string;
   description: string;
   maxScore: number;
-  category: 'general' | 'reasoning' | 'knowledge' | 'qa' | 'code';
+  category: 'general' | 'reasoning' | 'knowledge' | 'qa' | 'code' | 'multilingual';
 }
 
 export const benchmarks: BenchmarkInfo[] = [
@@ -81,6 +81,27 @@ export const benchmarks: BenchmarkInfo[] = [
     description: 'Yes/no questions requiring paragraph comprehension',
     maxScore: 100,
     category: 'qa'
+  },
+  {
+    id: 'xnli',
+    name: 'XNLI',
+    description: 'Cross-lingual Natural Language Inference across 15 languages',
+    maxScore: 100,
+    category: 'multilingual'
+  },
+  {
+    id: 'flores',
+    name: 'FLORES-101',
+    description: 'Machine translation benchmark covering 101 languages',
+    maxScore: 100,
+    category: 'multilingual'
+  },
+  {
+    id: 'mgsm',
+    name: 'MGSM',
+    description: 'Multilingual Grade School Math problems in 10+ languages',
+    maxScore: 100,
+    category: 'multilingual'
   }
 ];
 
@@ -101,7 +122,10 @@ export const models: ModelData[] = [
       humaneval: { score: 89.5 },
       winogrande: { score: 88.5 },
       arc: { score: 96.8 },
-      boolq: { score: 91.2 }
+      boolq: { score: 91.2 },
+      xnli: { score: 92.5 },
+      flores: { score: 89.3 },
+      mgsm: { score: 91.8 }
     }
   },
   {
@@ -120,7 +144,10 @@ export const models: ModelData[] = [
       humaneval: { score: 84.7 },
       winogrande: { score: 87.2 },
       arc: { score: 95.6 },
-      boolq: { score: 90.8 }
+      boolq: { score: 90.8 },
+      xnli: { score: 88.7 },
+      flores: { score: 87.2 },
+      mgsm: { score: 89.5 }
     }
   },
   {
@@ -139,7 +166,10 @@ export const models: ModelData[] = [
       humaneval: { score: 82.6 },
       winogrande: { score: 85.1 },
       arc: { score: 93.2 },
-      boolq: { score: 89.3 }
+      boolq: { score: 89.3 },
+      xnli: { score: 90.1 },
+      flores: { score: 93.7 },
+      mgsm: { score: 88.3 }
     }
   },
   {
@@ -158,7 +188,10 @@ export const models: ModelData[] = [
       humaneval: { score: 76.8 },
       winogrande: { score: 83.9 },
       arc: { score: 89.6 },
-      boolq: { score: 87.1 }
+      boolq: { score: 87.1 },
+      xnli: { score: 84.2 },
+      flores: { score: 81.9 },
+      mgsm: { score: 84.7 }
     }
   },
   {
@@ -177,7 +210,10 @@ export const models: ModelData[] = [
       humaneval: { score: 79.4 },
       winogrande: { score: 84.7 },
       arc: { score: 91.8 },
-      boolq: { score: 88.5 }
+      boolq: { score: 88.5 },
+      xnli: { score: 85.1 },
+      flores: { score: 82.4 },
+      mgsm: { score: 86.2 }
     }
   },
   {
@@ -196,7 +232,10 @@ export const models: ModelData[] = [
       humaneval: { score: 74.1 },
       winogrande: { score: 82.6 },
       arc: { score: 87.3 },
-      boolq: { score: 85.9 }
+      boolq: { score: 85.9 },
+      xnli: { score: 80.3 },
+      flores: { score: 78.6 },
+      mgsm: { score: 81.9 }
     }
   }
 ];
