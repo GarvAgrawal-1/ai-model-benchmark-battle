@@ -10,10 +10,6 @@ An interactive dashboard to compare and evaluate different AI language models ac
 - **Benchmark Details**: View performance across multiple NLP tasks like MMLU, HellaSwag, TruthfulQA, and more
 - **Responsive Design**: Works on desktop and mobile devices
 
-## Live Demo
-
-Visit the [live demo](https://lovable.dev/projects/e26353d5-7bc4-494d-bd2a-e2cd5bc4e1fd) to see the project in action.
-
 ## Technologies Used
 
 - React
